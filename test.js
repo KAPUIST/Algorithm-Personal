@@ -1,17 +1,51 @@
-const solution = (n) => {
-  let answer = "";
-  let restNum = 0;
+function solution(A, B) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  let Atime = Number(A.split(":")[0]) * 60 + Number(A.split(":")[1]);
+  let Btime = Number(B.split(":")[0]) * 60 + Number(B.split(":")[1]);
 
-  while (n > 0) {
-    restNum = n % 3;
-    n = Math.floor(n / 3);
-    if (restNum == 0) {
-      n -= 1;
-      restNum = 4;
-    }
-    answer = restNum + answer;
+  if (Atime > Btime) {
+    Btime = Btime + 60 * 24;
+    // 0 15 30 45
+    return parseInt(Btime / 15) - Math.ceil(Atime / 15);
+  } else if (Atime < Btime) {
+    return parseInt(Btime / 15) - Math.ceil(Atime / 15);
+  } else {
+    return 0;
   }
+}
+//Atime === Btime || Btime - Atime < 15
+console.log(solution("12:17", "12:50"));
 
-  console.log(answer);
-};
-solution(10);
+function solution(S) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  for (let i = 0; i < S.length; i++) {
+    for (let j = i + 1; j < S.length; j++) {
+      for (let k = 0; k < S[i].length; k++) {
+        if (S[i][k] === S[j][k]) {
+          return [i, j, k];
+        }
+      }
+    }
+  }
+  return [];
+}
+
+function solution(arr) {
+  if (arr.length <= 2) {
+    return arr.length;
+  } else {
+    let temp = 2;
+    let answer = 2;
+    for (let i = 2; i < arr.length; i++) {
+      if (arr[i] === arr[i - 2]) {
+        answer = answer + 1;
+      } else {
+        answer = 2;
+      }
+    }
+    // answer = Math.max(answer, temp);
+    console.log(answer);
+  }
+}
+
+solution([7, -5, -5, -5, 7, -1, 7]);
