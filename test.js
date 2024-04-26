@@ -1,9 +1,9 @@
-function solution(arr) {
-  let answer = arr.reduce((acc, cur) => 
-     acc + cur;
-  );
- 
-  return answer / arr.length;
+function solution(n) {
+  let array = n.toString().split('');
+  let answer = array.reduce((acc, cur) => {
+    console.log(acc, cur);
+    return acc + Number(cur);
+  }, 0);
+  return answer;
 }
-
-solution([1, 2, 3, 4]);
+solution(123);
