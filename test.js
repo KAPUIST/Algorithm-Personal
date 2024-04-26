@@ -1,8 +1,9 @@
-function solution(array) {
-  let sortedArray = array.sort((a, b) => a - b);
-  let index = Math.floor(sortedArray.length / 2);
-  console.log(sortedArray);
-  console.log(sortedArray[index]);
+function solution(arr) {
+  let answer = arr.reduce((acc, cur) => 
+     acc + cur;
+  );
+ 
+  return answer / arr.length;
 }
 
-solution([1, 2, 7, 10, 11, 1, 23, 3, 4, 25425, 12]);
+solution([1, 2, 3, 4]);
