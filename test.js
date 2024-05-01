@@ -1,9 +1,7 @@
 function solution(n) {
-  let array = n.toString().split('');
-  let answer = array.reduce((acc, cur) => {
-    console.log(acc, cur);
-    return acc + Number(cur);
-  }, 0);
-  return answer;
+  let num = Math.sqrt(n);
+  console.log(num);
+  if (num % 1 !== 0) return -1;
+  return (num + 1) * (num + 1);
 }
-solution(123);
+solution(121);
