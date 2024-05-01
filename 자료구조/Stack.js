@@ -8,33 +8,43 @@ class Node {
     this.next = null;
   }
 }
-
+// 스택 만들기
 class Stack {
   constructor() {
     this.head = null;
   }
-
+  //peek 함수 만들기
   peek() {
-    if (this.head === null) {
+    const thisHead = this.head;
+    if (thisHead === null) {
       return null;
     }
-    return this.head.value;
+    return thisHead.value;
   }
+  //push 함수
   push(value) {
-    let newHead = new Node(value);
+    const newHead = new Node(value);
     newHead.next = this.head;
     this.head = newHead;
   }
+
+  //꺼내기 함수
   pop() {
-    let head = this.head.value;
-    this.head = this.head.next;
-    return head;
+    const thisHead = this.head;
+    if (thisHead === null) {
+      return null;
+    }
+    const delNode = thisHead;
+    this.head = thisHead.next;
+    return delNode.value;
   }
 }
 let stack = new Stack();
 stack.push('123');
+
 stack.push('234');
 console.log(stack);
 console.log(stack.peek());
-stack.pop();
-console.log(stack);
+// console.log(stack.pop());
+// console.log(stack);
+// console.log(stack);
